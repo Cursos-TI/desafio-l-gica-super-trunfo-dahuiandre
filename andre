@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char cidade1[50], cidade2[50];
+    int populacao1, populacao2;
+
+    // Entrada de dados da primeira cidade
+    printf("Digite o nome da primeira cidade: ");
+    fgets(cidade1, sizeof(cidade1), stdin);
+    cidade1[strcspn(cidade1, "\n")] = 0; // Remove o \n do fgets
+
+    printf("Digite a populacao da primeira cidade: ");
+    scanf("%d", &populacao1);
+    getchar(); // Limpa o buffer do teclado
+
+    // Entrada de dados da segunda cidade
+    printf("Digite o nome da segunda cidade: ");
+    fgets(cidade2, sizeof(cidade2), stdin);
+    cidade2[strcspn(cidade2, "\n")] = 0; // Remove o \n do fgets
+
+    printf("Digite a populacao da segunda cidade: ");
+    scanf("%d", &populacao2);
+
+    // Comparação e saída
+    printf("\nComparacao de populacao entre %s e %s:\n", cidade1, cidade2);
+
+    if (populacao1 > populacao2) {
+        printf("%s tem uma populacao maior que %s.\n", cidade1, cidade2);
+    } else if (populacao1 < populacao2) {
+        printf("%s tem uma populacao maior que %s.\n", cidade2, cidade1);
+    } else {
+        printf("%s e %s tem populacoes iguais.\n", cidade1, cidade2);
+    }
+
+    return 0;
+}
